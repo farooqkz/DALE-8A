@@ -34,7 +34,9 @@ sh dale8a.sh prog.ch8
 
 You can also run the AWK file itself directly as follows:
 
+```
 LANG=C awk -f tgl.awk -f dale8a.awk [params] -- prog.ch8
+```
 
 If the ROM file has `.l.ch8` extension, additional `LSQ` emulation quirk will be applied (see below). If the file has `.s.ch8` extention, additional `STQ` emulation quirk will be applied (see below). Is the file has `.sl.ch8` or `.ls.ch8` extension, both quirks will be applied.
 
@@ -92,9 +94,9 @@ Opcode | Assembly instruction | Meaning | Notes
 6xkk | LD Vx, byte | Set Vx = byte |
 7xkk | ADD Vx, byte | Set Vx = Vx + byte |
 8xy0 | LD Vx, Vy | Set Vx = Vy |
-8xy1 | OR Vx, Vy | Set Vx = Vx OR Vy | Bitwise OR | If `VIP` quirk is **on**, also clear the VF register
-8xy2 | AND Vx, Vy | Set Vx = Vx AND Vy | Bitwise AND | If `VIP` quirk is **on**, also clear the VF register
-8xy3 | XOR Vx, Vy | Set Vx = Vx XOR Vy | Bitwise XOR | If `VIP` quirk is **on**, also clear the VF register
+8xy1 | OR Vx, Vy | Set Vx = Vx OR Vy | Bitwise OR. If `VIP` quirk is **on**, also clear the VF register
+8xy2 | AND Vx, Vy | Set Vx = Vx AND Vy | Bitwise AND. If `VIP` quirk is **on**, also clear the VF register
+8xy3 | XOR Vx, Vy | Set Vx = Vx XOR Vy | Bitwise XOR. If `VIP` quirk is **on**, also clear the VF register
 8xy4 | ADD Vx, Vy | Set Vx = Vx + Vy, set VF = carry\* | VF is set to 1 if the result would exceed 255, set to 0 otherwise
 8xy5 | SUB Vx, Vy | Set Vx = Vx - Vy, set VF = NOT borrow\* | VF is set to 0 if the result would be less than zero, set to 1 otherwise
 8xy6 | SHR Vx {, Vy} | Set Vx = Vy >> 1, VF is set to Vy&1 before the shift\* | If `LSQ` quirk is **on**, the instruction operates on Vx instead of Vy
