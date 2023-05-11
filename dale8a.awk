@@ -331,7 +331,7 @@ BEGIN {
   setterm(3) # enter the non-blocking input mode before the event loop
   pc = 512 # start at instruction 0x200
   iReg = dtReg = stReg = skip = 0 # init I, DT and ST registers and skip flag
-  renderScheduled = 0 # only render the screen when necessary
+  renderScheduled = 1 # only render the screen when necessary
   b1 = b2 = d1 = d2 = d3 = d4 = nnn = sp = 0 # init different opcode parts
   while(1) { # our event loop is here
     for(i=0;i<clockFactor;i++) cpuLoop() # call main CPU loop CF times
