@@ -1,5 +1,8 @@
 #!/bin/sh
-AWKENGINE="mawk -W posix"
+# Use the default awk in your OS:
+AWKENGINE=awk
+# or uncomment one of these:
+#AWKENGINE="mawk -W posix"
 #AWKENGINE="gawk -P"
 #AWKENGINE="busybox awk"
 ESC=$'\x1b'
